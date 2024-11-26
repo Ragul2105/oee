@@ -125,7 +125,7 @@ app.patch("/machines/:machineName/idealCycleTime", async (req, res) => {
 
 // Function to calculate OEE
 async function calculateOEE(machineName) {
-    const plannedProductionTime = 8; // in hours
+    const plannedProductionTime = 8*60; // in minutes
 
     // Fetch machine data
     const machine = await Machine.findOne({ name: machineName });
@@ -135,7 +135,7 @@ async function calculateOEE(machineName) {
         const from = new Date(time.from);
         const to = new Date(time.to);
         return total + (to - from) / (1000 * 60); // Convert milliseconds to minutes
-    }, 0) / 60; // Convert minutes to hours
+    }, 0) ; // Convert minutes to hours
 
     const runTime = plannedProductionTime - stopTime;
 
@@ -151,7 +151,7 @@ async function calculateOEE(machineName) {
 
     // Calculate metrics
     const availability = runTime / plannedProductionTime;
-    const performance = (machine.idealCycleTime * totalCount) / runTime;
+    const performance = (machine.idealCycleTime * totalCount) / (runTime*60);
     const quality = goodCount / totalCount;
     const oee = availability * performance * quality;
 
