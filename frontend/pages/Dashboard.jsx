@@ -23,7 +23,7 @@ const Dashboard = () => {
       try {
         // Fetch machine details
         const machineResponse = await axios.get(
-          `http://localhost:5000/machines/${machineName}`
+          `https://oee-zfyq.onrender.com/machines/${machineName}`
         );
         const machine = machineResponse.data;
         setMachineDetails(machine);
@@ -31,7 +31,7 @@ const Dashboard = () => {
 
         // Fetch machine details for achieved count and pie chart
         const machineDetailsResponse = await axios.get(
-          `http://localhost:5000/machine-details/${machineName}/latest`
+          `https://oee-zfyq.onrender.com/machine-details/${machineName}/latest`
         );
         const machineDetailsData = machineDetailsResponse.data;
 
