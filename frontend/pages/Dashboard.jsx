@@ -72,7 +72,7 @@ const Dashboard = () => {
 
         // Fetch measurements for availability, performance, quality, and OEE
         const measurementsResponse = await axios.get(
-          `http://localhost:5000/machines/${machineName}/measurements`
+          `https://oee-zfyq.onrender.com/machines/${machineName}/measurements`
         );
         const measurements = measurementsResponse.data;
         setAvailability((measurements.availability * 100).toFixed(2));
@@ -82,7 +82,7 @@ const Dashboard = () => {
 
         // Fetch historical data for line chart
         const historicalDataResponse = await axios.get(
-          `http://localhost:5000/machines/${machineName}/historical-data`
+          `https://oee-zfyq.onrender.com/machines/${machineName}/historical-data`
         );
         const historicalData = historicalDataResponse.data;
 
