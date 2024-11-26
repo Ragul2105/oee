@@ -9,7 +9,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost:5000/machines')
+        axios.get('https://oee-zfyq.onrender.com/machines')
             .then(response => setMachines(response.data))
             .catch(err => console.error(err));
     }, []);
