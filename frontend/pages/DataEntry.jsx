@@ -39,7 +39,7 @@ const DataEntry = () => {
   // Fetch initial machine details
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/machines/${machineName}`)
+      .get(`https://oee-zfyq.onrender.com/machines/${machineName}`)
       .then((response) => {
         const machine = response.data;
         setTargetValue(machine.targetValue || "");
@@ -65,7 +65,7 @@ const DataEntry = () => {
   const handleTargetValueSubmit = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/machines/${machineName}/target`,
+        `https://oee-zfyq.onrender.com/machines/${machineName}/target`,
         { targetValue }
       );
       alert("Target value updated successfully");
@@ -79,7 +79,7 @@ const DataEntry = () => {
   const handleIdealCycleTimeSubmit = async () => {
     try {
       await axios.patch(
-        `http://localhost:5000/machines/${machineName}/idealCycleTime`,
+        `https://oee-zfyq.onrender.com/machines/${machineName}/idealCycleTime`,
         { idealCycleTime }
       );
       alert("Ideal cycle time updated successfully");
@@ -118,7 +118,7 @@ const DataEntry = () => {
       }));
 
       await axios.patch(
-        `http://localhost:5000/machines/${machineName}/rejected-stop-times`,
+        `https://oee-zfyq.onrender.com/machines/${machineName}/rejected-stop-times`,
         {
           rejectedCount,
           stopTimes: stopTimesInUTC,
